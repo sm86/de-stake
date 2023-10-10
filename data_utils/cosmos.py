@@ -19,7 +19,7 @@ class Cosmos:
             # Collecting specified values for each validator
             validator_info_list = [
                 {
-                    'operator_address': validator.get('operator_address', 'Unknown'),
+                    'validator_id': validator.get('operator_address', 'Unknown'),
                     'tokens': int(validator.get('tokens', '0'))  # Assuming 0 if tokens is not found
                 }
                 for validator in validators
@@ -37,7 +37,7 @@ def write_csv(df):
     # Getting the current date
     current_date = datetime.now().strftime('%d-%m-%Y')
     # Including the date in the filename
-    csv_file = f'data/raw_data/cosmos_{current_date}.csv'
+    csv_file = f'data/cosmos_{current_date}.csv'
     # Writing the DataFrame to a CSV file
     df.to_csv(csv_file, index=False)
     print(f'Data has been written to {csv_file}')
