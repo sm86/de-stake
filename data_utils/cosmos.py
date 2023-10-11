@@ -2,7 +2,7 @@ import requests
 import json
 import pandas as pd
 
-from datetime import datetime
+import utils
 
 
 class Cosmos:
@@ -28,19 +28,11 @@ class Cosmos:
             df = pd.DataFrame(validator_info_list)
             # Sorting the DataFrame based on tokens (assumed to be numeric)
             sorted_df = df.sort_values(by='tokens', ascending=False)
-            write_csv(sorted_df)
+            utils.write_csv(sorted_df, 'cosmos')
             return sorted_df
         else:
             print(f'Failed to retrieve data: {response.status_code}')
             return None
-def write_csv(df):
-    # Getting the current date
-    current_date = datetime.now().strftime('%d-%m-%Y')
-    # Including the date in the filename
-    csv_file = f'data/cosmos_{current_date}.csv'
-    # Writing the DataFrame to a CSV file
-    df.to_csv(csv_file, index=False)
-    print(f'Data has been written to {csv_file}')
 
 if __name__ == '__main__':
     validator_dataframe = Cosmos.get_validators()

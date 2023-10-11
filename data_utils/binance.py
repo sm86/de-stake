@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
-from datetime import datetime
+
+import utils
 
 class Binance:
     BASE_URL = 'https://api.binance.org/v1/staking/chains/bsc/validators'
@@ -17,7 +18,7 @@ class Binance:
             response = requests.get(url)
             
             if response.status_code != 200:
-                print(f'Failed to retrieve data: {response.status_code}')
+                print(f'Failed to retrieve Binance data: {response.status_code}')
                 return None
 
             data = response.json()
@@ -30,7 +31,7 @@ class Binance:
             for validator in validators:
                 validator_info = {
                     'validator_id': validator.get('validator', 'Unknown'),
-                    'tokens': validator.get('votingPower', 'Unknown')
+                    'tokens': int(validator.get('votingPower', 'Unknown'))
                 }
                 validator_info_list.append(validator_info)
 
@@ -41,14 +42,8 @@ class Binance:
         df = pd.DataFrame(validator_info_list)
         # Sorting the DataFrame based on tokens (assuming tokens are numeric)
         sorted_df = df.sort_values(by='tokens', ascending=False)
+        utils.write_csv(sorted_df, 'binance')
         return sorted_df
-def write_csv(df):
-    current_date = datetime.now().strftime('%Y-%m-%d')
-    # Including the date in the filename
-    csv_file = f'data/binance_{current_date}.csv'
-    # Writing the DataFrame to a CSV file
-    df.to_csv(csv_file, index=False)
-    print(f'Data has been written to {csv_file}')
 
 if __name__ == '__main__':
     Binance.get_validators()

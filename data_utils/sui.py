@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
-from datetime import datetime
+
+import utils
 
 class Sui:
     URL = 'https://fullnode.mainnet.sui.io'
@@ -34,17 +35,8 @@ class Sui:
         ]
         df = pd.DataFrame(validator_info_list)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        write_csv(sorted_df)
+        utils.write_csv(sorted_df, 'sui')
         return sorted_df
-
-def write_csv(df):
-    # Getting the current date
-    current_date = datetime.now().strftime('%d-%m-%Y')
-    # Including the date in the filename
-    csv_file = f'data/sui_{current_date}.csv'
-    # Writing the DataFrame to a CSV file
-    df.to_csv(csv_file, index=False)
-    print(f'Data has been written to {csv_file}')
 
 if __name__ == '__main__':
     validator_dataframe = Sui.get_validators()
