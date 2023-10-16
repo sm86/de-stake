@@ -25,6 +25,7 @@ class Sui:
             return None
 
         response_data = response.json()
+        print(response_data)
         active_validators = response_data.get('result', {}).get('activeValidators', [])
         validator_info_list = [
             {
