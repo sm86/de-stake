@@ -29,7 +29,7 @@ class Sui:
         active_validators = response_data.get('result', {}).get('activeValidators', [])
         validator_info_list = [
             {
-                'validator_id': validator.get('name', ''),
+                'address': validator.get('name', ''),
                 'tokens': int(validator.get('stakingPoolSuiBalance', '0'))
             }
             for index, validator in enumerate(active_validators, start=1)

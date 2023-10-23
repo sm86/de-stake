@@ -22,7 +22,7 @@ class Axelar:
         validator_info_list = []
         for validator in validators_data:
             validator_info = {
-                'validator_id': validator.get('address', 'Unknown'),
+                'address': validator.get('address', 'Unknown'),
                 'tokens': int(validator.get('voting_power', 'Unknown'))
             }
             validator_info_list.append(validator_info)

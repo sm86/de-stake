@@ -19,7 +19,7 @@ class Polygon:
         validators_list = response_data.get('list', [])
         validator_info_list = [
             {
-                'validator_id': validator.get('name', ''),
+                'address': validator.get('name', ''),
                 'tokens': int(validator.get('totalStaked', 0))
             }
             for index, validator in enumerate(validators_list, start=1)

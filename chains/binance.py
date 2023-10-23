@@ -30,7 +30,7 @@ class Binance:
 
             for validator in validators:
                 validator_info = {
-                    'validator_id': validator.get('validator', 'Unknown'),
+                    'address': validator.get('validator', 'Unknown'),
                     'tokens': int(validator.get('votingPower', 'Unknown'))
                 }
                 validator_info_list.append(validator_info)
