@@ -1,4 +1,4 @@
-# Decentralized Stake Insights
+# DeStake: Decentralized Stake Distribution Insights
 Analyzing stake among validators in PoS blockchains.
 
 ## Overview
