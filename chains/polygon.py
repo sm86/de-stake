@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import utils 
+import chains.save as save 
 
 class Polygon:
     URL = 'https://validator.info/api/polygon/validators?timeframe=week&nameContains=&activeValidators=true'
@@ -27,7 +27,7 @@ class Polygon:
 
         df = pd.DataFrame(validator_info_list)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        utils.write_csv(sorted_df, 'polygon')
+        save.write_csv(sorted_df, 'polygon')
         return sorted_df
     
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import utils
+import chains.save as save
 
 class Axelar:
     BASE_URL = 'https://rpc-axelar.imperator.co/dump_consensus_state'
@@ -31,7 +31,7 @@ class Axelar:
         df = pd.DataFrame(validator_info_list)
         # Sorting the DataFrame based on tokens (assuming tokens are numeric)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        utils.write_csv(sorted_df, 'axelar')
+        save.write_csv(sorted_df, 'axelar')
         return sorted_df
 
 if __name__ == '__main__':

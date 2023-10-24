@@ -3,7 +3,7 @@ import json
 import requests
 import pandas as pd
 
-import utils
+import chains.save as save
 
 class Aptos:
     MAINNET_VALIDATORS_DATA_URL = "https://storage.googleapis.com/aptos-mainnet/explorer/validator_stats_v2.json?cache-version=0"
@@ -23,18 +23,18 @@ class Aptos:
         validator_info_list = [
             {
                 'address': validator.get('owner_address', 'Unknown'),
-                'tokens': cls.getTokens(validator.get('owner_address', 'Unknown'))  # call getTokens on operator address
+                'tokens': cls.get_tokens(validator.get('owner_address', 'Unknown'))  # call getTokens on operator address
             }
             for index, validator in enumerate(validators_data, start=1)
         ]
 
         df = pd.DataFrame(validator_info_list)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        utils.write_csv(sorted_df, 'aptos')
+        save.write_csv(sorted_df, 'aptos')
         return sorted_df
 
     @classmethod
-    def getTokens(cls, address):
+    def get_tokens(cls, address):
         conn = http.client.HTTPSConnection(cls.MAINNET_FULLNODE_DATA_URL)
         headers = {'Accept': "application/json"}
         request_path = f"/v1/accounts/{address}/resource/0x1::stake::StakePool"
