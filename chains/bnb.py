@@ -3,7 +3,7 @@ import pandas as pd
 
 import chains.save as save
 
-class Binance:
+class Bnb:
     BASE_URL = 'https://api.binance.org/v1/staking/chains/bsc/validators'
 
     @classmethod

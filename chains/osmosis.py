@@ -19,7 +19,7 @@ class Osmosis:
             validator_info_list = [
                 {
                     # 'address': validator.get('operator_address', 'Unknown'),
-                    'tokens': int(validator.get('tokens', '0'))  # Assuming 0 if tokens is not found,
+                    'tokens': int(validator.get('tokens', '0')),  # Assuming 0 if tokens is not found,
                     'address': validator.get('description', {}).get('moniker', 'Unknown')
                 }
                 for validator in validators
