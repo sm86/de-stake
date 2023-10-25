@@ -27,5 +27,5 @@ def main(blockchains):
 
 if __name__ == '__main__':
     # List of blockchain names
-    blockchains = ['aptos', 'axelar', 'bnb', 'cosmos', 'osmosis', 'polygon', 'sui']  
+    blockchains = ['aptos', 'axelar', 'bnb', 'celo', 'cosmos', 'osmosis', 'polygon', 'sui']  
     main(blockchains)

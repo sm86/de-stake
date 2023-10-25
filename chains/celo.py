@@ -1,0 +1,42 @@
+import requests
+import pandas as pd
+
+import chains.save as save
+
+class Celo:
+    URL = 'https://thecelo.com/api/v0.1?method=groups'
+
+    @classmethod
+    def get_validators(cls):
+        print('Retrieving data for Celo')
+        response = requests.get(cls.URL)
+
+        if response.status_code != 200:
+            print(f'Failed to retrieve data: {response.status_code}')
+            return None
+        
+        data = response.json()
+        groups = data.get('groups', {})
+        
+        # Collecting specified values for each group
+        validator_info_list = [
+            {
+                'address': group[0],
+                'votes': int(group[1])  # Assuming votes are represented as integers
+            }
+            for address, group in groups.items()
+        ]
+
+        # Creating a DataFrame
+        df = pd.DataFrame(validator_info_list)
+
+        # Sorting the DataFrame based on votes
+        sorted_df = df.sort_values(by='votes', ascending=False)
+        
+        # Saving the DataFrame to a CSV file
+        save.write_csv(sorted_df, 'celo')
+        
+        return sorted_df
+    
+if __name__ == '__main__':
+    Celo.get_validators()
