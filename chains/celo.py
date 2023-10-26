@@ -22,16 +22,18 @@ class Celo:
         validator_info_list = [
             {
                 'address': group[0],
-                'votes': int(group[1])  # Assuming votes are represented as integers
+                'tokens': group[1] 
             }
             for address, group in groups.items()
         ]
 
         # Creating a DataFrame
         df = pd.DataFrame(validator_info_list)
+        df['tokens'] = pd.to_numeric(df['tokens'], errors='coerce')
+        df['tokens'] = df['tokens'].astype(int)
 
         # Sorting the DataFrame based on votes
-        sorted_df = df.sort_values(by='votes', ascending=False)
+        sorted_df = df.sort_values(by='tokens', ascending=False)
         
         # Saving the DataFrame to a CSV file
         save.write_csv(sorted_df, 'celo')
