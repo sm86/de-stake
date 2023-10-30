@@ -4,7 +4,9 @@ import glob
 
 from nakamotoCoefficient import NakamotoCoefficient
 from giniCoefficient import GiniCoefficient
-
+from shannonIndex import ShannonIndex
+from palma import PalmaRatio
+from theilIndex import TheilIndex
 
 class DecentralizationMetrics:
 
@@ -18,7 +20,7 @@ class DecentralizationMetrics:
         files = glob.glob(os.path.join(data_folder_path, file_pattern))
 
         # Initialize an empty DataFrame to store the results
-        results_df = pd.DataFrame(columns=['blockchain', 'N', 'nc_safety', 'nc_safety_percent', 'nc_liveness', 'nc_liveness_percent', 'gini'])
+        results_df = pd.DataFrame(columns=['blockchain', 'N', 'nc_safety', 'nc_safety_percent', 'nc_liveness', 'nc_liveness_percent', 'gini', 'shannon', 'palma', 'theil'])
 
         # Loop through each file, calculate the metrics, and append the results to the results_df
         for file in files:
@@ -32,8 +34,12 @@ class DecentralizationMetrics:
             ncSafety, safetyNCPercent = NakamotoCoefficient.measureSafetyNC(df)
             ncLiveness, livenessNCPercent = NakamotoCoefficient.measureLivenessNC(df)
             gini = GiniCoefficient.measure(df)
+            shannon = ShannonIndex.measure(df)
+            palma = PalmaRatio.measure(df)
+            theil = TheilIndex.measure(df)
             
-            results_df = pd.concat([pd.DataFrame([[blockchain_name, len(df), ncSafety, safetyNCPercent, ncLiveness, livenessNCPercent, gini]], columns=results_df.columns), results_df], ignore_index=True)
+            
+            results_df = pd.concat([pd.DataFrame([[blockchain_name, len(df), ncSafety, safetyNCPercent, ncLiveness, livenessNCPercent, gini, shannon, palma, theil]], columns=results_df.columns), results_df], ignore_index=True)
 
         return results_df
 
