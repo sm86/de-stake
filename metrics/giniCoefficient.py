@@ -3,30 +3,28 @@ import numpy as np
 
 class GiniCoefficient:
 
-
     @staticmethod
     def measure(df):
         # Ensure the data is a numpy array for efficiency
         tokens = df['tokens'].to_numpy()
-        
+
         # Sort the values
         tokens_sorted = np.sort(tokens)
-        
+
         # Get the cumulative sum of tokens and the cumulative count of validators
         cum_tokens = np.cumsum(tokens_sorted, dtype=float)
         total_tokens = cum_tokens[-1]
-        
+
         # The Lorenz curve is the cumulative sum of tokens divided by the total number of tokens
         lorenz_curve = cum_tokens / total_tokens
-        
-        # The line of equality is a straight line from 0 to 1
-        line_of_equality = np.linspace(0, 1, len(tokens))
-        
-        # The Gini coefficient is twice the area between the Lorenz curve and the line of equality
-        gini_coefficient = 2 * (np.sum(line_of_equality) / len(tokens) - np.sum(lorenz_curve) / len(tokens))
-        
-        return round(gini_coefficient,2)
 
+        # Area under the Lorenz curve
+        B = np.trapz(lorenz_curve, dx=1/len(tokens))
+
+        # The Gini coefficient using the formula G = 1 - 2B
+        gini_coefficient = 1 - 2 * B
+        
+        return round(gini_coefficient, 2)
 
 def main():
     # Load the CSV file into a DataFrame
