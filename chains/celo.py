@@ -17,27 +17,22 @@ class Celo:
         
         data = response.json()
         groups = data.get('groups', {})
-        
         # Collecting specified values for each group
         validator_info_list = [
             {
                 'address': group[0],
-                'tokens': group[1] 
+                'tokens': int(group[1])
             }
             for address, group in groups.items()
         ]
 
-        # Creating a DataFrame
+        # # Creating a DataFrame
         df = pd.DataFrame(validator_info_list)
-        df['tokens'] = pd.to_numeric(df['tokens'], errors='coerce')
-        df['tokens'] = df['tokens'].astype(int)
 
-        # Sorting the DataFrame based on votes
+        # # Sorting the DataFrame based on votes
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        
         # Saving the DataFrame to a CSV file
         save.write_csv(sorted_df, 'celo')
-        
         return sorted_df
     
 if __name__ == '__main__':
