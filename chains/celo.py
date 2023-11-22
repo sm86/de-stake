@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import chains.save as save
+import save as save
 
 class Celo:
     URL = 'https://thecelo.com/api/v0.1?method=groups'
@@ -21,7 +21,7 @@ class Celo:
         validator_info_list = [
             {
                 'address': group[0],
-                'tokens': int(group[1])
+                'tokens': float(group[1])
             }
             for address, group in groups.items()
         ]
@@ -33,6 +33,7 @@ class Celo:
         sorted_df = df.sort_values(by='tokens', ascending=False)
         # Saving the DataFrame to a CSV file
         save.write_csv(sorted_df, 'celo')
+        print(sorted_df)
         return sorted_df
     
 if __name__ == '__main__':
