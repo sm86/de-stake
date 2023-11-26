@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import save as save
+import chains.save as save
 
 class Celo:
     URL = 'https://thecelo.com/api/v0.1?method=groups'

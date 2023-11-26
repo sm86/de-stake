@@ -1,0 +1,9 @@
+blockchain,N,nc_safety,nc_safety_percent,nc_liveness,nc_liveness_percent,gini
+aptos,134,31,23.13,15,11.19,0.6
+celo,83,32,38.55,10,12.05,0.41
+osmosis,150,41,27.33,10,6.67,0.54
+sui,105,35,33.33,14,13.33,0.41
+binance,55,16,29.09,8,14.55,0.54
+axelar,75,29,38.67,11,14.67,0.4
+polygon,105,11,10.48,4,3.81,0.78
+cosmos,180,25,13.89,8,4.44,0.68
