@@ -20,13 +20,13 @@ In other words, blockchains that require a super majority quorum (two-thirds of 
 | Blockchain      | Consensus Mechanism                | Reference |
 |-----------------|------------------------------------|-----------|
 | Aptos           | DiemBFT (HotStuff)       | [white paper](https://aptos.dev/aptos-white-paper/) | 
-| Axelar | Tendermint | [docs](https://docs.axelar.dev/validator/operations/monitoring)|
+| Axelar | Tendermint | [docs](https://github.com/axelarnetwork/axelar-core/blob/main/docs/cli/axelard_tendermint_version.md)|
 | BNB (Binance) | Tendermint|[white paper](https://github.com/bnb-chain/whitepaper/blob/master/WHITEPAPER.md)|
 | Celo | IstanbulBFT | [docs](https://docs.celo.org/protocol/consensus) |
 | Cosmos | Tendermint | [blog](https://blog.cosmos.network/tendermint-explained-bringing-bft-based-pos-to-the-public-blockchain-domain-f22e274a0fdb) |
-| Osmosis | Tendermint | [docs](https://docs.osmosis.zone/overview/terminology/#consensus) |
+| Osmosis | Tendermint | [docs](https://docs.osmosis.zone/overview/educate/terminology#consensus) |
 | Polygon | Tendermint | [docs](https://wiki.polygon.technology/docs/pos/design/heimdall/peppermint/)|
-| Sui | Narwhal/BullShark                     | [docs](https://docs.sui.io/learn/architecture/consensus) |
+| Sui | Narwhal/BullShark                     | [docs](https://docs.sui.io/guides/operator/validator-committee) |
 
 
 
