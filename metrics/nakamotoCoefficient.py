@@ -59,7 +59,7 @@ class NakamotoCoefficient:
 
 def main():
     # Load the CSV file into a DataFrame
-    file_path = 'data/26102023_celo.csv'  # Replace with the path to your CSV file
+    file_path = 'data/22112023_celo.csv'  # Replace with the path to your CSV file
     df = pd.read_csv(file_path)
   
     # Call the measure method to calculate the Nakamoto Coefficient
