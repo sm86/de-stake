@@ -52,6 +52,8 @@ class DecentralizationMetrics:
             
             results_df = pd.concat([pd.DataFrame([[blockchain_name, len(df), ncSafety, safetyNCPercent, ncLiveness, livenessNCPercent, gini, shannon, palma, theil]], columns=results_df.columns), results_df], ignore_index=True)
         
+        results_df = results_df.sort_values(by='blockchain', ascending=True)
+        mGDModel_df = mGDModel_df.sort_values(by='blockchain', ascending=True)
         return results_df, mGDModel_df
     @staticmethod
     def plot_blockchain_distribution(df):
@@ -94,35 +96,16 @@ class DecentralizationMetrics:
         plt.show()  
 def main():
     # Assume the date is provided as a string in the format 'ddmmyyyy'
-    date = '26102023'
+    date = '04122023'
     
     # Call the calculate_metrics method to calculate the decentralization metrics
     results_df, mgd_df = DecentralizationMetrics.calculate_metrics(date)
    
     # DecentralizationMetrics.plot_blockchain_distribution(mgd_df)
 
-    
-    # Print the results and store them. Used in paper. Date ised 26102023
+    # Print the results 
     results_df = results_df.drop(columns=['shannon',  'palma',  'theil'])
     print(results_df)   
     print(mgd_df)
-
-    date = '26112023'
-    
-    # Call the calculate_metrics method to calculate the decentralization metrics
-    results_df, mgd_df = DecentralizationMetrics.calculate_metrics(date)
-   
-    # DecentralizationMetrics.plot_blockchain_distribution(mgd_df)
-
-    
-    # Print the results and store them. Used in paper. Date ised 26102023
-    results_df = results_df.drop(columns=['shannon',  'palma',  'theil'])
-    print(results_df)   
-    print(mgd_df)
-
-    # csv_file = f'data/paper/26102023_metrics.csv'
-    # mgd_csv = f'data/paper/26102023_mgd.csv'
-    # results_df.to_csv(csv_file, index=False)
-    # mgd_df.to_csv(mgd_csv,index=False)
 if __name__ == '__main__':
     main()
