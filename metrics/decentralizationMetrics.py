@@ -103,9 +103,22 @@ def main():
 
     
     # Print the results and store them. Used in paper. Date ised 26102023
-    # results_df = results_df.drop(columns=['shannon',  'palma',  'theil'])
-    # print(results_df)   
-    # print(mgd_df)
+    results_df = results_df.drop(columns=['shannon',  'palma',  'theil'])
+    print(results_df)   
+    print(mgd_df)
+
+    date = '26112023'
+    
+    # Call the calculate_metrics method to calculate the decentralization metrics
+    results_df, mgd_df = DecentralizationMetrics.calculate_metrics(date)
+   
+    # DecentralizationMetrics.plot_blockchain_distribution(mgd_df)
+
+    
+    # Print the results and store them. Used in paper. Date ised 26102023
+    results_df = results_df.drop(columns=['shannon',  'palma',  'theil'])
+    print(results_df)   
+    print(mgd_df)
 
     # csv_file = f'data/paper/26102023_metrics.csv'
     # mgd_csv = f'data/paper/26102023_mgd.csv'
