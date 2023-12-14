@@ -96,7 +96,7 @@ class DecentralizationMetrics:
         plt.show()  
 def main():
     # Assume the date is provided as a string in the format 'ddmmyyyy'
-    date = '04122023'
+    date = '14122023'
     
     # Call the calculate_metrics method to calculate the decentralization metrics
     results_df, mgd_df = DecentralizationMetrics.calculate_metrics(date)
