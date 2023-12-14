@@ -49,14 +49,14 @@ class DecentralizationMetrics:
 def plot(df):
     plt.figure(figsize=(10, 5))
     df[['G', 'srsw_G']].plot(kind='bar', color=['#407F7F', '#A67F8E'])
-    plt.xticks(range(len(df['blockchain'])), df['blockchain'], rotation=10)
+    plt.xticks(range(len(df['blockchain'])), df['blockchain'], rotation=30)
     plt.ylabel('Gini Index '+ r'($G$)')
     plt.legend(["$w=s$", "SRSW"], fontsize='large')
 
     # Adding grid lines
     plt.grid(True, axis='y')
     # Save the figure to a file
-    plt.savefig('data/paper/gini_index_comparison.pdf', transparent=True)
+    plt.savefig('data/paper/14122023_gini_index_comparison.pdf', transparent=True)
     # Show the plot
     # plt.show()
     
@@ -90,7 +90,7 @@ def plot(df):
     plt.grid(True, axis='y')
 
     # Save the figure to a file
-    plt.savefig('data/paper/nakamoto_coefficients_combined.pdf', transparent=True)
+    plt.savefig('data/paper/14122023_nakamoto_coefficients_combined.pdf', transparent=True)
 
     # Show the plot
     plt.show()
@@ -99,11 +99,11 @@ def plot(df):
 
 def main():
     # Assume the date is provided as a string in the format 'ddmmyyyy'
-    date = '26102023'
+    date = '14122023'
     
     # Call the calculate_metrics method to calculate the decentralization metrics
     results_df = DecentralizationMetrics.calculate_metrics(date)
-    # plot(results_df)
+    plot(results_df)
     
     print(results_df)   
     
@@ -116,9 +116,9 @@ def main():
     print(results_df['G_inc'].mean())
     print(results_df['nL_inc'].mean())
     print(results_df['nS_inc'].mean())
-    # csv_file = f'data/paper/26102023_metrics.csv'
-    # mgd_csv = f'data/paper/26102023_mgd.csv'
-    # results_df.to_csv(csv_file, index=False)
+    csv_file = f'data/paper/14122023_metrics.csv'
+    # mgd_csv = f'data/paper/14122023_mgd.csv'
+    results_df.to_csv(csv_file, index=False)
     # mgd_df.to_csv(mgd_csv,index=False)
 if __name__ == '__main__':
     main()
