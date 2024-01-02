@@ -51,7 +51,7 @@ def plot(df):
     df[['G', 'srsw_G']].plot(kind='bar', color=['#407F7F', '#A67F8E'])
     plt.xticks(range(len(df['blockchain'])), df['blockchain'], rotation=30)
     plt.ylabel('Gini Index '+ r'($G$)')
-    plt.legend(["$w=s$", "SRSW"], fontsize='large')
+    plt.legend(["$w=s \quad G$", "SRSW " +r'$G^*$'], fontsize='large')
 
     # Adding grid lines
     plt.grid(True, axis='y')
@@ -72,15 +72,15 @@ def plot(df):
 
     # Nakamoto Coefficient Liveness
     plt.bar(index - bar_width/2, df['nLP'], bar_width, label=r'$w=s \quad \rho_{\mathbb{N}_L}$', color=colors[0])
-    plt.bar(index + bar_width/2, df['srsw_nLP'], bar_width, label='SRSW ' + r'$\rho_{\mathbb{N}_L}$', color=colors[1])
+    plt.bar(index + bar_width/2, df['srsw_nLP'], bar_width, label='SRSW ' + r'$\rho_{\mathbb{N}_L^*}$', color=colors[1])
 
     # Nakamoto Coefficient Safety
     plt.bar(index + 1.5 * bar_width, df['nSP'], bar_width, label=r'$w=s \quad \rho_{\mathbb{N}_S}$', color=colors[2])
-    plt.bar(index + 2.5 * bar_width, df['srsw_nSP'], bar_width, label='SRSW ' + r'$\rho_{\mathbb{N}_S}$', color=colors[3])
+    plt.bar(index + 2.5 * bar_width, df['srsw_nSP'], bar_width, label='SRSW ' + r'$\rho_{\mathbb{N}_S^*}$', color=colors[3])
 
     # Adding labels and title
     plt.xlabel('Blockchain')
-    plt.ylabel('Nakamoto Coefficients % ' + r'$(\rho_{\mathbb{N}}$)')
+    plt.ylabel('Normalized Nakamoto Coefficients ' + r'$(\rho_{\mathbb{N}}$)')
     plt.xticks(index + bar_width, df['blockchain'])
 
     # Increase legend size

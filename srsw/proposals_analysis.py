@@ -20,7 +20,7 @@ plt.plot(df['tokens'], df['proposals'], label='proposals observed', color='#407F
 plt.plot(df['tokens'], df['proposals_expected'], label='proposals predicted', color='red')
 plt.plot(df['tokens'], df['proposals_srsw'], label='proposals SRSW', color='#B26670')
 
-plt.xlabel('Stake $s$')
+plt.xlabel('Stake ($s$)')
 plt.ylabel('Number of Proposals')
 plt.legend(fontsize='large')
 

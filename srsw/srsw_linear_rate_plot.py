@@ -20,7 +20,7 @@ for i, alpha in enumerate(alphas):
 
     # Plot linear and square root functions with increased line thickness
     plt.plot(x, linear_values, label=r'$w = s$' + f' (α={alpha})', color=colors[i], linestyle='solid', linewidth=2)
-    plt.plot(x, square_root_values, label=r'$w = \sqrt{s}$' + f' (α={alpha})', color=colors[i], linestyle='dashed', linewidth=2)
+    plt.plot(x, square_root_values, label=r'$w^* = \sqrt{s}$' + f' (α={alpha})', color=colors[i], linestyle='dashed', linewidth=2)
 
 # Set the plot limits
 plt.xlim(0, 100)
@@ -29,7 +29,7 @@ plt.ylim(0, max(linear_values.max(), square_root_values.max()))
 # Adding labels, title, and grid
 plt.xlabel('Stake ($s$)', fontsize=14)
 plt.ylabel('Rewards ($r$)', fontsize=14)
-plt.legend(fontsize='large')
+plt.legend(fontsize='x-large')
 plt.grid(True)
 
 # Show the plot
