@@ -35,3 +35,8 @@ In other words, blockchains that require a super majority quorum (two-thirds of 
 For each blockchain, we save stake distribution data in CSV format, with two columns: `address` and `tokens`.
 
 The CSV file has following format DDMMYY_blockchain.csv and is stored in [data](data/) folder. 
+
+Added API for these metrics. Start the server:
+```python3 api/app.py```
+Access the data:
+```http://127.0.0.1:5000/metrics```
