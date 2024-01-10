@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import chains.save as save
+import chains.utils as utils
 
 class Celo:
     URL = 'https://thecelo.com/api/v0.1?method=groups'
@@ -32,7 +32,7 @@ class Celo:
         # # Sorting the DataFrame based on votes
         sorted_df = df.sort_values(by='tokens', ascending=False)
         # Saving the DataFrame to a CSV file
-        save.write_csv(sorted_df, 'celo')
+        utils.write_csv(sorted_df, 'celo')
         print(sorted_df)
         return sorted_df
     

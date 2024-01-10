@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import chains.save as save
+import chains.utils as utils
 
 class Osmosis:
     URL = 'https://lcd-osmosis.keplr.app/staking/validators'
@@ -30,7 +30,7 @@ class Osmosis:
 
             # Sorting the DataFrame based on tokens (assumed to be numeric)
             sorted_df = df.sort_values(by='tokens', ascending=False)
-            save.write_csv(sorted_df, 'osmosis')
+            utils.write_csv(sorted_df, 'osmosis')
             return sorted_df
         else:
             print(f'Failed to retrieve data: {response.status_code}')

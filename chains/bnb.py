@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 
-import chains.save as save
+import chains.utils as utils
 
 class Bnb:
     BASE_URL = 'https://api.binance.org/v1/staking/chains/bsc/validators'
@@ -42,7 +42,7 @@ class Bnb:
         df = pd.DataFrame(validator_info_list)
         # Sorting the DataFrame based on tokens (assuming tokens are numeric)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        save.write_csv(sorted_df, 'binance')
+        utils.write_csv(sorted_df, 'binance')
         return sorted_df
 
 if __name__ == '__main__':

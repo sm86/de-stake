@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-import chains.save as save
+import chains.utils as utils
 
 class Injective:
     URL = 'https://lcd.injective.network/cosmos/base/tendermint/v1beta1/validatorsets/latest'
@@ -30,7 +30,7 @@ class Injective:
             sorted_df = df.sort_values(by='tokens', ascending=False)
 
             # Saving the data to a CSV file
-            save.write_csv(sorted_df, 'injective')
+            utils.write_csv(sorted_df, 'injective')
             return sorted_df
         else:
             print(f'Failed to retrieve data: {response.status_code}')

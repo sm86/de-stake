@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-import chains.save as save
+import chains.utils as utils
 
 class Celestia:
     URL = 'https://celestia.api.explorers.guru/api/v1/validators'
@@ -25,7 +25,7 @@ class Celestia:
             # Sorting the DataFrame by votingPowerPercent
             sorted_df = df.sort_values(by='tokens', ascending=False)
             # save.write_csv(sorted_df, 'celestia')
-            save.write_csv(sorted_df, 'celestia')
+            utils.write_csv(sorted_df, 'celestia')
 
             return sorted_df
         else:

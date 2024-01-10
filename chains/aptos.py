@@ -3,7 +3,7 @@ import json
 import requests
 import pandas as pd
 
-import chains.save as save
+import chains.utils as utils
 
 class Aptos:
     MAINNET_VALIDATORS_DATA_URL = "https://storage.googleapis.com/aptos-mainnet/explorer/validator_stats_v2.json?cache-version=0"
@@ -30,7 +30,7 @@ class Aptos:
 
         df = pd.DataFrame(validator_info_list)
         sorted_df = df.sort_values(by='tokens', ascending=False)
-        save.write_csv(sorted_df, 'aptos')
+        utils.write_csv(sorted_df, 'aptos')
         return sorted_df
 
     @classmethod

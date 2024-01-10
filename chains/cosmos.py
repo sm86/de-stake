@@ -2,7 +2,7 @@ import requests
 import json
 import pandas as pd
 
-import chains.save as save
+import chains.utils as utils
 
 
 class Cosmos:
@@ -28,7 +28,7 @@ class Cosmos:
             df = pd.DataFrame(validator_info_list)
             # Sorting the DataFrame based on tokens (assumed to be numeric)
             sorted_df = df.sort_values(by='tokens', ascending=False)
-            save.write_csv(sorted_df, 'cosmos')
+            utils.write_csv(sorted_df, 'cosmos')
             return sorted_df
         else:
             print(f'Failed to retrieve data: {response.status_code}')

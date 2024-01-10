@@ -2,6 +2,7 @@ import sys
 from datetime import datetime,timedelta
 from pathlib import Path
 from flask import Flask
+from flask_cors import CORS
 
 # Add the project root directory to sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -9,6 +10,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 from metrics.decentralizationMetrics import DecentralizationMetrics
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/metrics')
 def hello_world():
