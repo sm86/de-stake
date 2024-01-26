@@ -12,6 +12,10 @@ from metrics.decentralizationMetrics import DecentralizationMetrics
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/hello')
+def hello():
+    return "hello"
+    
 @app.route('/metrics/<date>')
 def metrics(date):
     result = DecentralizationMetrics.calculate_metrics(date)
@@ -24,7 +28,6 @@ def metrics(date):
         }), 400
 
     return result.to_json(orient='records')
-
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -36,7 +36,15 @@ For each blockchain, we save stake distribution data in CSV format, with two col
 
 The CSV file has following format DDMMYY_blockchain.csv and is stored in [data](data/) folder. 
 
+# API Server
 Added API for these metrics. Start the server:
 ```python3 api/app.py```
 Access the data:
-```http://127.0.0.1:5000/metrics```
+```http://127.0.0.1:5000/metrics/<date>```
+
+The date has to be in right range, else you would get the following error:
+``` 
+{
+  "error": "No data available for the selected date. Please select a date between 24-10-2023 and today"
+}
+```
