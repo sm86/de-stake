@@ -4,5 +4,5 @@ __pycache__/
 node_modules/
 
 *.log
-package-lock.json
+react-frontend/package-lock.json
 .vercel
