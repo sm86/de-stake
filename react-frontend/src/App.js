@@ -1,10 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import MediaCard from "./card.js";
+import cardContents from "./cardContents.js";
+import ActionAreaCard from "./reference.js";
+import RecipeReviewCard from "./paper.js";
 
 const App = () => {
   const [tableData, setTableData] = useState([]);
   const [selectedDate, setSelectedDate] = useState(getYesterdayDate());
-  const [value, setValue] = useState(null); 
+  const [value, setValue] = useState(null);
+  const [showCard, setShowCard] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [currentHeading, setCurrentHeading] = useState(null);
+  // Function to handle mouse over
+  const handleMouseOver = (e, heading) => {
+    const rect = e.target.getBoundingClientRect();
+    setPosition({
+      x: rect.left + window.scrollX,
+      y: rect.top + window.scrollY,
+    });
+    setCurrentHeading(heading);
+    setShowCard(true);
+  };
+
+  const handleMouseOut = () => {
+    setShowCard(false);
+  };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
@@ -15,15 +36,15 @@ const App = () => {
     setValue(handleDatePicker());
   }, []);
 
-
   const fetchData = () => {
     if (!selectedDate) {
       console.error("Please select a date.");
       return;
     }
     let domain = window.location.origin;
-    let port = 5000;
-    let url = `${domain}:${port}/metrics/${selectedDate}`;
+    // let port = 5000;
+    // let url = `${domain}:${port}/metrics/${selectedDate}`;
+    let url = `${domain}/metrics/${selectedDate}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -96,10 +117,52 @@ const App = () => {
                 <thead>
                   <tr>
                     <th>Blockchain</th>
-                    <th>Number of validators</th>
-                    <th>Nakamoto Coefficient Safety</th>
-                    <th>Nakamoto coefficient Liveness</th>
-                    <th>Gini</th>
+                    <th>
+                      Number of validators
+                      <span
+                        className="info"
+                        onMouseOver={(e) =>
+                          handleMouseOver(e, "numberOfValidators")
+                        }
+                        onMouseOut={handleMouseOut}
+                      >
+                        <i class="fa fa-info-circle"></i>
+                      </span>
+                    </th>
+                    <th>
+                      Nakamoto Coefficient Safety
+                      <span
+                        className="info"
+                        onMouseOver={(e) =>
+                          handleMouseOver(e, "nakomotoSafety")
+                        }
+                        onMouseOut={handleMouseOut}
+                      >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </span>
+                    </th>
+                    <th>
+                      Nakamoto coefficient Liveness
+                      <span
+                        className="info"
+                        onMouseOver={(e) =>
+                          handleMouseOver(e, "nakomotoLiveness")
+                        }
+                        onMouseOut={handleMouseOut}
+                      >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </span>
+                    </th>
+                    <th>
+                      Gini
+                      <span
+                        className="info"
+                        onMouseOver={(e) => handleMouseOver(e, "gini")}
+                        onMouseOut={handleMouseOut}
+                      >
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                      </span>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -127,6 +190,12 @@ const App = () => {
               </div>
             )}
           </table>
+          {showCard && (
+            <MediaCard
+              position={position}
+              content={cardContents[currentHeading]}
+            />
+          )}
         </div>
       ) : (
         <div>
@@ -135,52 +204,41 @@ const App = () => {
       )}
       <div className="centered-content">
         <div className="date-selection">
-          <label htmlFor="datePicker">Please select a date</label>
+          <label
+            htmlFor="datePicker"
+            Style={{ marginRight: "10px", fontFamily: "Baskerville" }}
+          >
+            You are viewing metrics as of
+          </label>
           <input
             className="date-picker"
             type="date"
             id="datePicker"
-            value= {value}
+            value={value}
             onChange={handleDateChange}
           />
         </div>
       </div>
-      <div className="pdf-label centered-content">
-        <label>Reference:</label>
-        <a
-          href="https://arxiv.org/abs/2312.13938"
-          className="pdf-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Analyzing Blockchain Decentralization
-        </a>
+
+      <div className=" centered-content">
+        <RecipeReviewCard />
+        <ActionAreaCard />
       </div>
 
-      <footer className="footer">
+      <footer className="footer" style={{ fontSize: "20px" }}>
+  <label htmlFor="footerlink">Connect with us:</label>
   <a
-    className="footerlink"
-    href="https://github.com/sm86"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <i className="fab fa-github"></i>
-  </a>
-  <a
-    className="footerlink"
+    className="pdf-link"
     href="https://twitter.com/sh1sh1nk?lang=en"
     target="_blank"
     rel="noopener noreferrer"
+    style={{ display: "inline-flex", alignItems: "center" }}
   >
-    <i className="fab fa-twitter"></i> 
-  </a>
-  <a
-    className="footerlink"
-    href="https://www.linkedin.com/in/smotepalli?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <i className="fab fa-linkedin"></i> 
+    <i
+      className="fab fa-twitter"
+      style={{ marginRight: "5px", marginBottom: "2px" }}
+    ></i>
+    <span>@sh1sh1nk</span>
   </a>
 </footer>
     </div>
