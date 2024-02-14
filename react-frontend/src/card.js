@@ -68,6 +68,16 @@ function MediaCard({ position, content }) {
                 color: "white",
               }}
             >
+              {content.combined}
+              <br />
+            </span>
+            <span
+              style={{
+                fontFamily: "Baskerville",
+                marginRight: "5px",
+                color: "white",
+              }}
+            >
               {content.ideal}
             </span>
           </Typography>

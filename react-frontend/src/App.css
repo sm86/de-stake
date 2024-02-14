@@ -14,14 +14,21 @@ body {
   padding-right: 2px;
 }
 
-.header,
-.footer {
-  background-color: #a248eb;
-  font-size: larger;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-}
+.header { 
+  background-color: #a248eb; 
+  font-size: larger; 
+  color: #fff; 
+  padding: 15px; 
+  text-align: center; 
+} 
+
+.footer { 
+  background-color: #a248eb; 
+  font-size: larger; 
+  color: #fff; 
+  padding: 10px; 
+  text-align: center;   
+} 
 
 .centered-content {
   flex: 1;

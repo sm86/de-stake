@@ -6,17 +6,19 @@ const cardContents = {
       ideal: "Ideal: The higher the better",
     },
     nakomotoSafety: {
-      title: "Nakamoto Coefficient Safety",
-      description:
-        "Percentage of validators to form supermajority, i.e., 66% of network. Can potentially collude to reorg the chain.",
-      ideal: "Ideal: The higher the better",
-    },
-    nakomotoLiveness: {
-      title: "Nakamoto Coefficient Liveness",
-      description:
-        "Percentage of validators to censor transactions, i.e., 33% of network.",
-      ideal: "Ideal: The higher the better",
-    },
+        title: "Nakamoto Coefficient Safety",
+        description:
+          "Percentage of validators to form supermajority, i.e., 66% of network. Can potentially collude to reorg the chain.",
+        ideal: "Ideal: The higher the better",
+        combined: "Percentage (Absolute Number)",
+      },
+      nakomotoLiveness: {
+        title: "Nakamoto Coefficient Liveness",
+        description:
+          "Percentage of validators to censor transactions, i.e., 33% of network.",
+        ideal: "Ideal: The higher the better",
+        combined: "Percentage (Absolute Number)",
+      },
     gini: {
       title: "Gini",
       description: "Inequality of stake among the validators in the committee.",

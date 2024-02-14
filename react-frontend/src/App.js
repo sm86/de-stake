@@ -106,15 +106,17 @@ const App = () => {
   }
 
   return (
-    <div className="app-container">
-      <header className="header">Decentralization in PoS Blockchains</header>
+    <div className="app-container"style={{
+      fontFamily: "Baskerville",
+    }} >
+      <header className="header">Is Your Blockchain Decentralized?</header> 
 
       {selectedDate ? (
         <div className="metrics-section">
           <table className="metrics-table">
             {tableData && tableData.length > 0 ? (
               <>
-                <thead>
+                 <thead>
                   <tr>
                     <th>Blockchain</th>
                     <th>
@@ -126,6 +128,8 @@ const App = () => {
                         }
                         onMouseOut={handleMouseOut}
                       >
+                        {" "}
+                        &nbsp;
                         <i class="fa fa-info-circle"></i>
                       </span>
                     </th>
@@ -138,6 +142,8 @@ const App = () => {
                         }
                         onMouseOut={handleMouseOut}
                       >
+                        {" "}
+                        &nbsp;
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                       </span>
                     </th>
@@ -150,6 +156,8 @@ const App = () => {
                         }
                         onMouseOut={handleMouseOut}
                       >
+                        {" "}
+                        &nbsp;
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                       </span>
                     </th>
@@ -160,6 +168,8 @@ const App = () => {
                         onMouseOver={(e) => handleMouseOver(e, "gini")}
                         onMouseOut={handleMouseOut}
                       >
+                        {" "}
+                        &nbsp;
                         <i class="fa fa-info-circle" aria-hidden="true"></i>
                       </span>
                     </th>
@@ -226,21 +236,26 @@ const App = () => {
       </div>
 
       <footer className="footer" style={{ fontSize: "20px" }}>
-  <label htmlFor="footerlink">Connect with us:</label>
-  <a
-    className="pdf-link"
-    href="https://twitter.com/sh1sh1nk?lang=en"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ display: "inline-flex", alignItems: "center" }}
-  >
-    <i
-      className="fab fa-twitter"
-      style={{ marginRight: "5px", marginBottom: "2px" }}
-    ></i>
-    <span>@sh1sh1nk</span>
-  </a>
-</footer>
+        <label htmlFor="footerlink">Connect with us:</label>
+        <a
+          className="pdf-link"
+          href="https://twitter.com/sh1sh1nk?lang=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            marginLeft: "-15px",
+          }}
+        >
+          <i
+            className="fab fa-twitter"
+            style={{ marginRight: "3px", marginBottom: "2px" }}
+          ></i>
+          @sh1sh1nk
+        </a>
+      </footer>
     </div>
   );
 };

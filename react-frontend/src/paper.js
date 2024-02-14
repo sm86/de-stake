@@ -35,7 +35,19 @@ function RecipeReviewCard() {
   };
 
   return (
-    <Card sx={{ maxWidth: 745, marginBlock: "20px" }}>
+    <Card
+      sx={{
+        maxWidth: 745,
+        marginBlock: "20px",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: "0.25rem",
+        boxShadow: "0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1)",
+        width: "100%",
+      }}
+    >
       <CardHeader
         // avatar={
         //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -52,17 +64,25 @@ function RecipeReviewCard() {
           <a
             href="https://arxiv.org/abs/2312.13938"
             target="_blank"
+            rel="noreferrer"
             style={{
               color: "#a248eb",
-              fontSize: "18px",
+              fontSize: "20px",
               justifyContent: "center",
               alignItems: "center",
               display: "flex",
               flexDirection: "column",
               textAlign: "center",
-              boxSizing: "border-box",
-              margin: "0",
+              width: "100%",
               wordWrap: "break-word",
+              fontFamily: "Baskerville",
+              textDecoration: "none",
+              fontStyle: "normal",
+              textDecorationLine: "none",
+              marginLeft: "-15px",
+              marginRight: "-15px",
+              padding: "0.5rem 1rem",
+              borderRadius: "0.25rem",
             }}
           >
             Learn more about the decentralization metrics
@@ -78,25 +98,15 @@ function RecipeReviewCard() {
           style={{
             justifyContent: "center",
             alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+            wordWrap: "break-word",
+            fontFamily: "Baskerville",
+            textDecoration: "none",
           }}
         >
-          How Does Stake Distribution Influence Consensus? Analyzing Blockchain
-          Decentralization{" "}
-          <a
-            href="https://arxiv.org/search/cs?searchtype=author&query=Motepalli,+S"
-            target="_blank"
-            style={{ color: "#a248eb" }}
-          >
-            Shashank Motepalli
-          </a>
-          ,{" "}
-          <a
-            href="https://arxiv.org/search/cs?searchtype=author&query=Jacobsen,+H"
-            target="_blank"
-            style={{ color: "#a248eb" }}
-          >
-            Hans-Arno Jacobsen
-          </a>
+          Shashank Motepalli, Hans-Arno Jacobsen
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -112,18 +122,33 @@ function RecipeReviewCard() {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          style={{ color: "#a248eb" }}
         >
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>
+          <Typography
+            paragraph
+            style={{
+              textAlign: "justify",
+              fontFamily: "Baskerville",
+              fontStyle: "normal",
+            }}
+          >
             How Does Stake Distribution Influence Consensus? Analyzing
             Blockchain Decentralization
           </Typography>
 
-          <Typography paragraph style={{ textAlign: "justify" }}>
+          <Typography
+            paragraph
+            style={{
+              textAlign: "justify",
+              fontFamily: "Baskerville",
+              fontStyle: "normal",
+            }}
+          >
             In the PoS blockchain landscape, the challenge of achieving full
             decentralization is often hindered by a disproportionate
             concentration of staked tokens among a few validators. This study
@@ -146,5 +171,4 @@ function RecipeReviewCard() {
     </Card>
   );
 }
-
 export default RecipeReviewCard;

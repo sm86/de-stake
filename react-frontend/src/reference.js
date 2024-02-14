@@ -10,13 +10,16 @@ function ActionAreaCard() {
   return (
     <Card
       sx={{
-        width: "100%",
         maxWidth: 745,
         marginBlock: "20px",
+        alignItems: "center",
+        justifyContent: "center",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center", // Center vertically
-        alignItems: "center", // Center horizontally
+        borderRadius: "0.25rem",
+        boxShadow: "0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1)",
+        width: "100%",
+        height: "100%",
       }}
     >
       <CardActionArea
@@ -28,23 +31,23 @@ function ActionAreaCard() {
             <a
               href="https://github.com/sm86/destake"
               target="_blank"
+              rel="noreferrer"
               style={{
                 textDecoration: "none",
                 color: "#a248eb",
-                fontSize: "18px",
+                fontSize: "20px",
                 justifyContent: "center",
                 alignItems: "center",
                 display: "flex",
                 flexDirection: "column",
                 textAlign: "center",
-
+                wordWrap: "break-word",
+                fontFamily: "Baskerville",
                 boxSizing: "border-box",
                 margin: "0",
-
-                wordWrap: "break-word",
-              }}
+            }}
             >
-              Access the data or contribute to this project here:
+              Access the data or contribute to this project here
             </a>
           }
         />
@@ -53,14 +56,23 @@ function ActionAreaCard() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            flexDirection: "column",
+            padding: "20px 0 20px 0",
+            textAlign: "center",
+            width: "100%",
+            height: "100%",
+            borderRadius: "0 0 0.25rem 0.25rem",
+            fontFamily: "Baskerville",
           }}
         >
           <Typography
             variant="body2"
             color="text.secondary"
             style={{
-              fontSize: "18px",
               display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              textAlign: "center",
               alignItems: "center",
             }}
           >
