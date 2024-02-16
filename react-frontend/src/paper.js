@@ -75,7 +75,7 @@ function RecipeReviewCard() {
               textAlign: "center",
               width: "100%",
               wordWrap: "break-word",
-              fontFamily: "Baskerville",
+              fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
               textDecoration: "none",
               fontStyle: "normal",
               textDecorationLine: "none",
@@ -102,11 +102,10 @@ function RecipeReviewCard() {
             flexDirection: "column",
             textAlign: "center",
             wordWrap: "break-word",
-            fontFamily: "Baskerville",
+            fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
             textDecoration: "none",
           }}
         >
-          Shashank Motepalli, Hans-Arno Jacobsen
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -133,7 +132,7 @@ function RecipeReviewCard() {
             paragraph
             style={{
               textAlign: "justify",
-              fontFamily: "Baskerville",
+              fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
               fontStyle: "normal",
             }}
           >
@@ -145,7 +144,7 @@ function RecipeReviewCard() {
             paragraph
             style={{
               textAlign: "justify",
-              fontFamily: "Baskerville",
+              fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
               fontStyle: "normal",
             }}
           >

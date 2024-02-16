@@ -107,9 +107,9 @@ const App = () => {
 
   return (
     <div className="app-container"style={{
-      fontFamily: "Baskerville",
+      fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
     }} >
-      <header className="header">Is Your Blockchain Decentralized?</header> 
+      <header className="header">Is your Blockchain Decentralized?</header> 
 
       {selectedDate ? (
         <div className="metrics-section">
@@ -216,7 +216,7 @@ const App = () => {
         <div className="date-selection">
           <label
             htmlFor="datePicker"
-            Style={{ marginRight: "10px", fontFamily: "Baskerville" }}
+            Style={{ marginRight: "10px", fontFamily: "Open Sans, Poppins, Montserrat, sans-serif" }}
           >
             You are viewing metrics as of
           </label>
@@ -235,7 +235,7 @@ const App = () => {
         <ActionAreaCard />
       </div>
 
-      <footer className="footer" style={{ fontSize: "20px" }}>
+      <footer className="footer" style={{ fontSize: "20px", fontFamily: "Open Sans, Poppins, Montserrat, sans-serif" }}>
         <label htmlFor="footerlink">Connect with us:</label>
         <a
           className="pdf-link"

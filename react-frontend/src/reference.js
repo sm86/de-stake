@@ -42,7 +42,7 @@ function ActionAreaCard() {
                 flexDirection: "column",
                 textAlign: "center",
                 wordWrap: "break-word",
-                fontFamily: "Baskerville",
+                fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
                 boxSizing: "border-box",
                 margin: "0",
             }}
@@ -62,7 +62,7 @@ function ActionAreaCard() {
             width: "100%",
             height: "100%",
             borderRadius: "0 0 0.25rem 0.25rem",
-            fontFamily: "Baskerville",
+            fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
           }}
         >
           <Typography

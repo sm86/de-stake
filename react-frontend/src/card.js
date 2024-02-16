@@ -51,7 +51,7 @@ function MediaCard({ position, content }) {
           <Typography variant="body2" color="text.secondary">
             <span
               style={{
-                fontFamily: "Baskerville",
+                fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
                 fontSize: content.title.length < 25 ? "20px" : "17px",
                 fontWeight: "bold",
                 marginRight: "5px",
@@ -63,7 +63,7 @@ function MediaCard({ position, content }) {
             <br />
             <span
               style={{
-                fontFamily: "Baskerville",
+                fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
                 marginRight: "5px",
                 color: "white",
               }}
@@ -73,7 +73,7 @@ function MediaCard({ position, content }) {
             </span>
             <span
               style={{
-                fontFamily: "Baskerville",
+                fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
                 marginRight: "5px",
                 color: "white",
               }}
@@ -85,7 +85,7 @@ function MediaCard({ position, content }) {
         <div style={{ padding: "10px", wordWrap: "break-word" }}>
           <Typography
             variant="body2"
-            style={{ fontFamily: "Baskerville", color: "black" }}
+            style={{ fontFamily: "Open Sans, Poppins, Montserrat, sans-serif", color: "black" }}
           >
             {content.description}
           </Typography>

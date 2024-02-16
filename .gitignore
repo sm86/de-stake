@@ -6,3 +6,5 @@ node_modules/
 *.log
 react-frontend/package-lock.json
 .vercel
+.eslintrc
+react-frontend/setupTests.js
