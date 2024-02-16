@@ -1,0 +1,136 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  box-sizing: border-box;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.header { 
+  background-color: #a248eb; 
+  font-size: larger; 
+  color: #fff; 
+  padding: 15px; 
+  text-align: center; 
+} 
+
+.footer { 
+  background-color: #a248eb; 
+  font-size: larger; 
+  color: #fff; 
+  padding: 10px; 
+  text-align: center;   
+} 
+
+.centered-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.centered-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.date-selection {
+  margin: 20px 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-wrap: wrap;
+  text-align: center;
+  color: #a248eb;
+}
+
+.date-selection label {
+  margin-right: 10px;
+}
+
+.date-selection input {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.metrics-section {
+  margin-top: 20px;
+  border: 2px solid #a248eb;
+  padding: 10px;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  white-space: nowrap;
+}
+.metrics-table tbody tr:hover {
+  background-color: #d6eaf8;
+}
+
+.metrics-table tbody tr:nth-child(even) {
+  background-color: #ecf0f1;
+}
+
+.metrics-table th,
+.metrics-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+}
+.metrics-table th {
+  background-color: #a248eb;
+  color: #fff;
+}
+
+.pdf-label {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.pdf-link {
+  margin: 10px;
+  color: #a248eb;
+}
+
+.pdf-link {
+  margin: 10px;
+  color: white;
+}
+
+.footer i {
+  margin-right: 25px;
+  margin-left: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  .metrics-table td {
+    font-size: 12px;
+  }
+}

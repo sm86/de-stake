@@ -2,7 +2,7 @@ import sys
 from datetime import datetime,timedelta
 from pathlib import Path
 from flask import Flask, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 # Add the project root directory to sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -12,10 +12,12 @@ from metrics.decentralizationMetrics import DecentralizationMetrics
 app = Flask(__name__)
 CORS(app)
 
+@cross_origin()
 @app.route('/hello')
 def hello():
     return "hello"
     
+@cross_origin()
 @app.route('/metrics/<date>')
 def metrics(date):
     result = DecentralizationMetrics.calculate_metrics(date)
