@@ -1,20 +1,15 @@
 import * as React from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import CopyIcon from "@mui/icons-material/FileCopy";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,11 +24,20 @@ const ExpandMore = styled((props) => {
 
 function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
-
+  const [isHovered, setIsHovered] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const handlePaperClick = () => {
+    window.open("https://arxiv.org/abs/2312.13938", "_blank");
+  };
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <Card
       sx={{
@@ -49,17 +53,6 @@ function RecipeReviewCard() {
       }}
     >
       <CardHeader
-        // avatar={
-        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-
-        //   </Avatar>
-        // }
-
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
         title={
           <a
             href="https://arxiv.org/abs/2312.13938"
@@ -88,40 +81,31 @@ function RecipeReviewCard() {
             Learn more about the decentralization metrics
           </a>
         }
-        // subheader="21 Dec 2023"
       />
 
-      <CardContent>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center",
-            wordWrap: "break-word",
-            fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
-            textDecoration: "none",
-          }}
+      <CardContent style={{ marginTop: 0 }}>
+        <IconButton
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-        </Typography>
+          <NewspaperIcon
+            className={isHovered ? "hovered" : ""}
+            onClick={handlePaperClick}
+            style={{
+              fontSize: "30px",
+              color: "black",
+              cursor: "pointer",
+            }}
+          />
+        </IconButton>
       </CardContent>
       <CardActions disableSpacing>
-        {/* <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton> */}
-        {/* <IconButton aria-label="share">
-          <ShareIcon />
-          <CopyIcon />
-        </IconButton> */}
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-          style={{ color: "#a248eb" }}
+          style={{ color: "#a248eb", marginTop: "-20px" }}
         >
           <ExpandMoreIcon />
         </ExpandMore>
@@ -131,7 +115,7 @@ function RecipeReviewCard() {
           <Typography
             paragraph
             style={{
-              textAlign: "justify",
+              textAlign: "center",
               fontFamily: "Open Sans, Poppins, Montserrat, sans-serif",
               fontStyle: "normal",
             }}

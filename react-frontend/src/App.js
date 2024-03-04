@@ -61,9 +61,20 @@ const App = () => {
 
   const handleDatePicker = () => {
     const currentDate = new Date();
-    const day = currentDate.getDate() - 1;
-    const month = currentDate.getMonth() + 1;
-    const year = currentDate.getFullYear();
+    let day = currentDate.getDate() - 1;
+    let month = currentDate.getMonth() + 1;
+    let year = currentDate.getFullYear();
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    if (!isLeapYear && month === 3 && day === 0) {
+      day = 28;
+    } else if (day === 0) {
+      month--;
+      if (month === 0) {
+        month = 12; 
+        year--;
+      }
+      day = new Date(year, month, 0).getDate();
+    }
     return `${year}-${month < 10 ? "0" + month : month}-${
       day < 10 ? "0" + day : day
     }`;
@@ -82,9 +93,21 @@ const App = () => {
 
   const handleYesterdayDate = () => {
     const currentDate = new Date();
-    const day = currentDate.getDate() - 1;
-    const month = currentDate.getMonth() + 1;
-    const year = currentDate.getFullYear();
+    let day = currentDate.getDate() - 1;
+    let month = currentDate.getMonth() + 1;
+    let year = currentDate.getFullYear();
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    if (!isLeapYear && month === 3 && day === 0) {
+      day = 28;
+      month = 2;
+    } else if (day === 0) {
+      month--;
+      if (month === 0) {
+        month = 12;
+        year--;
+      }
+      day = new Date(year, month, 0).getDate(); 
+    }
     return `${day < 10 ? "0" + day : day}-${
       month < 10 ? "0" + month : month
     }-${year}`;
@@ -93,12 +116,25 @@ const App = () => {
   function getYesterdayDate() {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-
-    const day = yesterday.getDate().toString().padStart(2, "0");
-    const month = (yesterday.getMonth() + 1).toString().padStart(2, "0");
-    const year = yesterday.getFullYear().toString();
-
-    return day + month + year;
+    let day = yesterday.getDate();
+    let month = yesterday.getMonth() + 1;
+    let year = yesterday.getFullYear();
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    if (!isLeapYear && month === 3 && day === 0) {
+      day = 28;
+      month = 2;
+    } else if (day === 0) {
+      month--;
+      if (month === 0) {
+        month = 12;
+        year--;
+      }
+      day = new Date(year, month, 0).getDate(); 
+    }
+    const formattedDay = day.toString().padStart(2, "0");
+    const formattedMonth = month.toString().padStart(2, "0");
+    const formattedYear = year.toString();
+    return `${formattedDay}${formattedMonth}${formattedYear}`;
   }
 
   function capitalizeFirstLetter(string) {
