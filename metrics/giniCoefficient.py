@@ -4,22 +4,22 @@ import numpy as np
 class GiniCoefficient:
 
     @staticmethod
-    def measure(df):
+    def measure(df, col='tokens'):
         # Ensure the data is a numpy array for efficiency
-        tokens = df['tokens'].to_numpy()
+        weights = df[col].to_numpy()
 
         # Sort the values
-        tokens_sorted = np.sort(tokens)
+        weights_sorted = np.sort(weights)
 
         # Get the cumulative sum of tokens and the cumulative count of validators
-        cum_tokens = np.cumsum(tokens_sorted, dtype=float)
-        total_tokens = cum_tokens[-1]
+        cum_weights = np.cumsum(weights_sorted, dtype=float)
+        total_weight = cum_weights[-1]
 
         # The Lorenz curve is the cumulative sum of tokens divided by the total number of tokens
-        lorenz_curve = cum_tokens / total_tokens
+        lorenz_curve = cum_weights / total_weight
 
         # Area under the Lorenz curve
-        B = np.trapz(lorenz_curve, dx=1/len(tokens))
+        B = np.trapz(lorenz_curve, dx=1/len(weights))
 
         # The Gini coefficient using the formula G = 1 - 2B
         gini_coefficient = 1 - 2 * B

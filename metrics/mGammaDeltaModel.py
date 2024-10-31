@@ -35,13 +35,14 @@ class mGammaDeltaModel:
 
 def main():
     # Load the CSV file into a DataFrame
-    file_path = 'data/25102023_sui.csv'  # Replace with the path to your CSV file
+    file_path = 'data/tnsm/25102024_sui.csv'  # Replace with the path to your CSV file
     df = pd.read_csv(file_path)
     
     # Get delta values at intervals of 10 from 0 to 100
     delta_step_function = mGammaDeltaModel.getDeltaStepFunction(df)
     
-    print(delta_step_function)
+    print(delta_step_function[0])
+    print(delta_step_function[10])
 
 if __name__ == '__main__':
     main()

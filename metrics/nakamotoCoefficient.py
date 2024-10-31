@@ -3,12 +3,12 @@ import pandas as pd
 class NakamotoCoefficient:
     
     @staticmethod
-    def measureLivenessNC(df):
+    def measureLivenessNC(df, col = 'tokens'):
         # Ensure the DataFrame is sorted in descending order of tokens (voting power)
-        df = df.sort_values(by='tokens', ascending=False)
+        df = df.sort_values(by=col, ascending=False)
         
         # Calculate the threshold (33% of total voting power)
-        total_voting_power = df['tokens'].sum()
+        total_voting_power = df[col].sum()
         threshold_voting_power = total_voting_power * 0.33
         
         # Initialize variables
@@ -18,7 +18,7 @@ class NakamotoCoefficient:
         # Loop through the DataFrame to find the minimum number of validators 
         # that add up to at least 33% of total voting power
         for _, row in df.iterrows():
-            accumulated_voting_power += row['tokens']
+            accumulated_voting_power += row[col]
             validator_count += 1
             if accumulated_voting_power >= threshold_voting_power:
                 break
@@ -30,12 +30,12 @@ class NakamotoCoefficient:
         return validator_count, round(percentage,2)
     
     @staticmethod
-    def measureSafetyNC(df):
+    def measureSafetyNC(df, col='tokens'):
         # Ensure the DataFrame is sorted in descending order of tokens (voting power)
-        df = df.sort_values(by='tokens', ascending=False)
+        df = df.sort_values(by=col, ascending=False)
         
         # Calculate the threshold (66% of total voting power)
-        total_voting_power = df['tokens'].sum()
+        total_voting_power = df[col].sum()
         threshold_voting_power = total_voting_power * 0.66
         
         # Initialize variables
@@ -45,7 +45,7 @@ class NakamotoCoefficient:
         # Loop through the DataFrame to find the minimum number of validators 
         # that add up to at least 33% of total voting power
         for _, row in df.iterrows():
-            accumulated_voting_power += row['tokens']
+            accumulated_voting_power += row[col]
             validator_count += 1
             if accumulated_voting_power >= threshold_voting_power:
                 break

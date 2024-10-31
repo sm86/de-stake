@@ -18,7 +18,7 @@ class DecentralizationMetrics:
         files = glob.glob(os.path.join(data_folder_path, file_pattern))
 
         # Initialize an empty DataFrame to store the results
-        results_df = pd.DataFrame(columns=['blockchain', 'N', 'nc_safety', 'nc_safety_percent', 'nc_liveness', 'nc_liveness_percent', 'gini'])
+        results_df = pd.DataFrame(columns=['blockchain', 'm', 'nc_safety', 'nc_safety_percent', 'nc_liveness', 'nc_liveness_percent', 'gini'])
 
         # Loop through each file, calculate the metrics, and append the results to the results_df
         for file in files:

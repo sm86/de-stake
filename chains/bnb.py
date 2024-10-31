@@ -29,9 +29,10 @@ class Bnb:
                 break
 
             for validator in validators:
+                print(validator)
                 validator_info = {
                     'address': validator.get('validator', 'Unknown'),
-                    'tokens': int(validator.get('votingPower', 'Unknown'))
+                    # 'tokens': int(validator.get('votingPower', 'Unknown'))
                 }
                 validator_info_list.append(validator_info)
 
@@ -41,9 +42,9 @@ class Bnb:
         # Creating a DataFrame
         df = pd.DataFrame(validator_info_list)
         # Sorting the DataFrame based on tokens (assuming tokens are numeric)
-        sorted_df = df.sort_values(by='tokens', ascending=False)
-        utils.write_csv(sorted_df, 'binance')
-        return sorted_df
+        # sorted_df = df.sort_values(by='tokens', ascending=False)
+        # utils.write_csv(sorted_df, 'binance')
+        # return sorted_df
 
 if __name__ == '__main__':
     Binance.get_validators()
