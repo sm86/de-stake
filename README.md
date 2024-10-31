@@ -19,7 +19,7 @@ In other words, blockchains that require a super majority quorum (two-thirds of 
 
 | Blockchain      | Consensus Mechanism                | Reference |
 |-----------------|------------------------------------|-----------|
-| Aptos           | DiemBFT (HotStuff)       | [white paper](https://aptos.dev/aptos-white-paper/) | 
+| Aptos           | Joelton      | [white paper](https://aptos.dev/aptos-white-paper/) | 
 | Axelar | Tendermint | [docs](https://github.com/axelarnetwork/axelar-core/blob/main/docs/cli/axelard_tendermint_version.md)|
 | BNB (Binance) | Tendermint|[white paper](https://github.com/bnb-chain/whitepaper/blob/master/WHITEPAPER.md)|
 | Celestia | Tendermint | [docs](https://docs.celestia.org/learn/how-celestia-works/data-availability-layer)|
@@ -28,7 +28,7 @@ In other words, blockchains that require a super majority quorum (two-thirds of 
 | Injective | Tendermint | [blog](https://medium.com/@charlesace/injective-tendermint-core-a-powerful-consensus-engine-for-decentralized-finance-a1db298b0b70)|
 | Osmosis | Tendermint | [docs](https://docs.osmosis.zone/overview/educate/terminology#consensus) |
 | Polygon | Tendermint | [docs](https://wiki.polygon.technology/docs/pos/design/heimdall/peppermint/)|
-| Sui | Narwhal/BullShark                     | [docs](https://docs.sui.io/guides/operator/validator-committee) |
+| Sui | Mysticeti                   | [docs](https://docs.sui.io/guides/operator/validator-committee) |
 
 
 
